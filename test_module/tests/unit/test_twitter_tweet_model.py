@@ -1,7 +1,6 @@
 # -*- coding: utf-8 -*-
 from odoo.tests import TransactionCase
 from odoo.exceptions import ValidationError
-from odoo.addons.test_module.helpers import string
 
 
 class TwitterTweetModel(TransactionCase):
