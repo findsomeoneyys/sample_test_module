@@ -28,8 +28,8 @@
     'data': [
 
         # Security Records...
-        # 'security/ir.rule.csv',
-        # 'security/ir.model.access.csv',
+        'security/ir.rule.csv',
+        'security/ir.model.access.csv',
 
         # General/Data Records...
         'init.xml',
