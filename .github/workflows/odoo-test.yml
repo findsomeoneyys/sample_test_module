@@ -39,6 +39,6 @@ jobs:
       run:  apt-get update && apt-get install -y git-all
     - uses: actions/checkout@v2
     - name: move files
-      run: mv * /mnt/extra-addons
+      run: cp -r * /mnt/extra-addons
     - name: run test
       run: python test_server.py
