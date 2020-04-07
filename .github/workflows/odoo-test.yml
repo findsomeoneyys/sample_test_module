@@ -41,4 +41,4 @@ jobs:
     - name: move files
       run: cp -r * /mnt/extra-addons
     - name: run test
-      run: python test_server.py
+      run: python3 test_server.py
