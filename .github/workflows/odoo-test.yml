@@ -41,4 +41,4 @@ jobs:
     - name: move files
       run: mv * /mnt/extra-addons
     - name: run test
-      run: odoo --db_host postgres -d postgres --db_user odoo --db_password odoo -i base --test-enable --stop-after-init
+      run: python test_server.py
