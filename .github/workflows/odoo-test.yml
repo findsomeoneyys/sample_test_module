@@ -35,7 +35,7 @@ jobs:
 
     steps:
     - name: install git
-      run:  apt-get install -y --no-install-recommends git
+      run:  apt install -y git
     - uses: actions/checkout@v2
     - name: move files
       run: mv * /mnt/extra-addons
