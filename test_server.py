@@ -4,7 +4,7 @@
 import subprocess
 
 def main():
-    pipe = subprocess.Popen("odoo --db_host postgres -d postgres --db_user odoo --db_password odoo -i base --test-enable --stop-after-init",
+    pipe = subprocess.Popen("/usr/bin/odoo --db_host postgres -d postgres --db_user odoo --db_password odoo -i base --test-enable --stop-after-init",
                             stderr=subprocess.STDOUT,
                             stdout=subprocess.PIPE)
     with open('stdout.log', 'wb') as stdout:
