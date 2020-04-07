@@ -10,6 +10,7 @@ jobs:
   build:
 
     runs-on: ubuntu-latest
+    container: odoo:12
     
     services:
       # Label used to access the service container
@@ -35,21 +36,13 @@ jobs:
       uses: actions/setup-python@v1
       with:
         python-version: 3.7
-    - name: Install dependencies
-      run: |
-        git clone --depth=1 https://github.com/OCA/maintainer-quality-tools.git ${HOME}/maintainer-quality-tools
-        export PATH=${HOME}/maintainer-quality-tools/travis:${PATH}
-        travis_install_nightly
+    - name: move files
+      run: mv * /mnt/extra-addons
     - name: run test
-      run: |
-        sudo chown -R $USER /usr/local/lib/node_modules
-        sudo travis_run_tests
+      run: odoo -i base --test-enable --stop-after-init
       env:
           # The hostname used to communicate with the PostgreSQL service container
           POSTGRES_DB: postgres
           POSTGRES_PASSWORD: postgres
           POSTGRES_USER: postgres
           POSTGRES_PORT: 5432
-          TESTS: 1
-          ODOO_REPO: odoo/odoo
-          MAKEPOT: 1
