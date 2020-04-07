@@ -40,7 +40,7 @@ jobs:
     - name: move files
       run: mv * /mnt/extra-addons
     - name: run test
-      run: odoo --db_host localhost -d postgres -i base --test-enable --stop-after-init
+      run: odoo --db_host postgres -d postgres -i base --test-enable --stop-after-init
       env:
           # The hostname used to communicate with the PostgreSQL service container
           POSTGRES_DB: postgres
