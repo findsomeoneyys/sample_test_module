@@ -17,6 +17,7 @@ def main():
     # errors = has_test_errors(
     #     "stdout.log", 'odoo', '12.0', False)
     if returncode != 0:
+        print('has error')
         return 1
     else:
         return 0
