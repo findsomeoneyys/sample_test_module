@@ -102,20 +102,9 @@ if __name__ == '__main__':
             ))
     returncode = pipe.wait()
     # Find errors, except from failed mails
-    errors = has_test_errors(
-        "stdout.log", 'odoo', '12.0', False)
+    # errors = has_test_errors(
+    #     "stdout.log", 'odoo', '12.0', False)
     if returncode != 0:
-        all_errors.append(to_test)
-        print(fail_msg, "Command exited with code %s" % returncode)
-        # If there are no errors,
-        # adds an error when returcode!=0
-        # because it's actually an error.
-        if not errors:
-            errors += 1
-    if errors:
-        counted_errors += errors
-        all_errors.append(to_test)
-        print(fail_msg, "Found %d lines with errors" % errors)
         return 1
     else:
         return 0
