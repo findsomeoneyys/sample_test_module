@@ -40,5 +40,7 @@ jobs:
     - uses: actions/checkout@v2
     - name: move files
       run: cp -r * /mnt/extra-addons
+    - name: echo odoo
+      run: which odoo
     - name: run test
       run: python3 test_server.py
