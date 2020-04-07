@@ -11,7 +11,7 @@ jobs:
 
     runs-on: ubuntu-latest
     container: 
-      image: odoo:12
+      image: odoo:13
       options: --user root
     
     
