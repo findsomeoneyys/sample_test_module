@@ -31,11 +31,9 @@ jobs:
           - 5432:5432
 
     steps:
+    - name: install git
+      run: sudo apt-get install -y --no-install-recommends git
     - uses: actions/checkout@v2
-    - name: Set up Python 3.7
-      uses: actions/setup-python@v1
-      with:
-        python-version: 3.7
     - name: move files
       run: mv * /mnt/extra-addons
     - name: run test
