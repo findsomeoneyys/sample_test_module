@@ -1,0 +1,53 @@
+name: odoo test
+
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+    
+    services:
+      # Label used to access the service container
+      postgres:
+        # Docker Hub image
+        image: postgres:10
+        # Provide the password for postgres
+        env:
+          POSTGRES_PASSWORD: postgres
+        # Set health checks to wait until postgres has started
+        options: >-
+          --health-cmd pg_isready
+          --health-interval 10s
+          --health-timeout 5s
+          --health-retries 5
+        ports:
+          # Maps tcp port 5432 on service container to the host
+          - 5432:5432
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: Set up Python 3.7.5
+      uses: actions/setup-python@v1
+      with:
+        python-version: 3.7.5
+    - name: Install dependencies
+      run: |
+        git clone --depth=1 https://github.com/OCA/maintainer-quality-tools.git ${HOME}/maintainer-quality-tools
+        export PATH=${HOME}/maintainer-quality-tools/travis:${PATH}
+        travis_install_nightly
+    - name: run test
+      run: travis_run_tests
+      env:
+          # The hostname used to communicate with the PostgreSQL service container
+          POSTGRES_DB: postgres
+          POSTGRES_PASSWORD: postgres
+          POSTGRES_USER: postgres
+          POSTGRES_PORT: 5432
+          TESTS: 1
+          ODOO_REPO: odoo/odoo
+          MAKEPOT: 1
