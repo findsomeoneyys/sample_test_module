@@ -10,7 +10,10 @@ jobs:
   build:
 
     runs-on: ubuntu-latest
-    container: odoo:12
+    container: 
+      image: odoo:12
+      options: --user root
+    
     
     services:
       # Label used to access the service container
