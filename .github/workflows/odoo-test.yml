@@ -41,7 +41,7 @@ jobs:
         export PATH=${HOME}/maintainer-quality-tools/travis:${PATH}
         travis_install_nightly
     - name: run test
-      run: travis_run_tests
+      run: sudo travis_run_tests
       env:
           # The hostname used to communicate with the PostgreSQL service container
           POSTGRES_DB: postgres
