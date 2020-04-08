@@ -11,9 +11,7 @@ jobs:
 
     runs-on: ubuntu-latest
     container: 
-      image: xxx008/odoo:latest
-      options: --user root
-    
+      image: xxx008/odoo:latest    
     
     services:
       # Label used to access the service container
