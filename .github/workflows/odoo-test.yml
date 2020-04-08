@@ -11,7 +11,7 @@ jobs:
 
     runs-on: ubuntu-latest
     container: 
-      image: odoo:13
+      image: xxx008/odoo:latest
       options: --user root
     
     
@@ -35,8 +35,6 @@ jobs:
           - 5432:5432
 
     steps:
-    - name: install git
-      run:  apt-get update && apt-get install -y git-all
     - uses: actions/checkout@v2
     - name: move files
       run: cp -r * /mnt/extra-addons
