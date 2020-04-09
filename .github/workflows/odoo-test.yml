@@ -11,7 +11,7 @@ jobs:
 
     runs-on: ubuntu-18.04
     container: 
-      image: xxx008/odoo:13
+      image: odoo:13
       options: --user root
     
     services:
