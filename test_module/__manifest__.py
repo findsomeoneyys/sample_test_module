@@ -4,7 +4,7 @@
     'name': 'Sample Testing Module',
     'category': 'Testing',
     'version': '12.0.0',
-    'author': 'Holden Rehg',
+    'author': 'Holden Rehg ',
 
     # |-------------------------------------------------------------------------
     # | Dependencies
